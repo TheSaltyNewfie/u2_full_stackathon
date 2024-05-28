@@ -7,6 +7,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const main = async () => {
   const hockey = await Sport.find({ name: 'Hockey' })
   const soccer = await Sport.find({ name: 'Soccer' })
+  const rugby = await Sport.find({ name: 'Rugby'})
+  const basketball = await Sport.find({ name: 'Basketball'})
+  const baseball = await Sport.find({ name: "Baseball"})
+  const football = await Sport.find({ name: "Football"})
+  const lacrosse = await Sport.find({ name: "Lacrosse"})
+  const tennis = await Sport.find({ name: "Tennis"})
+  
+
 
 
   const equipments = [
