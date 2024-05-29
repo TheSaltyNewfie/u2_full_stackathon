@@ -8,3 +8,10 @@ async function getData() {
 }
 
 getData();
+
+let button = document.querySelector("#searchButton")
+let sportName = document.querySelector("#sportName")
+let sportImage = document.querySelector("#sportImage")
+let sportItem = document.querySelector("#sportItem")
+let sportDisplay = document.querySelector("#imageArray")
+
