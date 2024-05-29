@@ -26,6 +26,7 @@ app.get('/equipment', equipmentController.getEquipments)
 app.get('/equipment/:id', equipmentController.getEquipment)
 app.post('/equipment', equipmentController.addEquipment)
 app.get('/equipment/sport/:sportId', equipmentController.getEquipmentBySportId)
+app.put('/equipment/:id', equipmentController.updateEquipment)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
