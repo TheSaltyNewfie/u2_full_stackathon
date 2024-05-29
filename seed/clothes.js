@@ -1,4 +1,3 @@
-// top,socks,shoes
 const db = require('../db')
 const { Sport, Clothing } = require('../models')
 
@@ -54,6 +53,126 @@ const main = async () => {
         sport_id: tennis[0]._id,
         item: "Tennis Shorts",
         price: 35
+    },
+    {
+        sport_id: hockey[0]._id,
+        item: "Hockey Jersey",
+        price: 27
+    },
+    {
+        sport_id: soccer[0]._id,
+        item: "Soccer Jersey",
+        price: 60
+    },
+    {
+        sport_id: rugby[0]._id,
+        item: "Rugby Longsleeve Jersey",
+        price: 80
+    },
+    {
+        sport_id: basketball[0]._id,
+        item: "Basketball Jersey",
+        price: 28
+    },
+    {
+        sport_id: baseball[0]._id,
+        item: "Baseball Jersey",
+        price: 70
+    },
+    {
+        sport_id: football[0]._id,
+        item: "Football Jersey",
+        price: 28
+    },
+    {
+        sport_id: lacrosse[0]._id,
+        item: "Lacrosse Jersey",
+        price: 20
+    },
+    {
+        sport_id: tennis[0]._id,
+        item: "Tennis Popover",
+        price: 95
+    },
+    {
+        sport_id: hockey[0]._id,
+        item: "Hockey Socks",
+        price: 30
+    },
+    {
+        sport_id: soccer[0]._id,
+        item: "Soccer Socks",
+        price: 15
+    },
+    {
+        sport_id: rugby[0]._id,
+        item: "Rugby Socks",
+        price: 15
+    },
+    {
+        sport_id: basketball[0]._id,
+        item: "Basketball Socks",
+        price: 12
+    },
+    {
+        sport_id: baseball[0]._id,
+        item: "Baseball Socks",
+        price: 4
+    },
+    {
+        sport_id: football[0]._id,
+        item: "Football Socks",
+        price: 17
+    },
+    {
+        sport_id: lacrosse[0]._id,
+        item: "Lacrosse Socks",
+        price: 15
+    },
+    {
+        sport_id: tennis[0]._id,
+        item: "Tennis Socks",
+        price: 18
+    },
+    {
+        sport_id: hockey[0]._id,
+        item: "Hockey Skates",
+        price: 170
+    },
+    {
+        sport_id: soccer[0]._id,
+        item: "Soccer Cleats",
+        price: 40
+    },
+    {
+        sport_id: rugby[0]._id,
+        item: "Rugby Cleats",
+        price: 110
+    },
+    {
+        sport_id: basketball[0]._id,
+        item: "Basketball Shoes",
+        price: 70
+    },
+    {
+        sport_id: baseball[0]._id,
+        item: "Baseball Cleats",
+        price: 40
+    },
+    {
+        sport_id: football[0]._id,
+        item: "Football Cleats",
+        price: 60
+    },
+    {
+        sport_id: lacrosse[0]._id,
+        item: "Lacrosse Cleats",
+        price: 70
+    },
+    {
+        sport_id: tennis[0]._id,
+        item: "Tennis Shoes",
+        price: 70
     },
 ]
 
