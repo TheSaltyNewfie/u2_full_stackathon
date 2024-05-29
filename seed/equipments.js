@@ -1,4 +1,4 @@
-// ,headGear,padding
+// padding
 const db = require('../db')
 const { Sport, Equipment } = require('../models')
 
@@ -200,6 +200,9 @@ const main = async () => {
       item: 'tennis gloves',
       price: 80
     },
+
+// ~~~~~~ Headware ~~~~~~~~~~~
+
     {
       sport_id: hockey[0]._id,
       item: "hockey helmet",
@@ -224,6 +227,32 @@ const main = async () => {
       sport_id: lacrosse[0]._id,
       item: "lacrosse helmet",
       price: 150
+    },
+    //PADDING
+    {
+      sport_id: hockey[0]._id,
+      item: "hockey shoulder pads",
+      price: 80
+    },
+    {
+      sport_id: rugby[0]._id,
+      item: "rugby shoulder pads",
+      price: 70
+    },
+    {
+      sport_id: football[0]._id,
+      item: "football shoulder pads",
+      price: 100
+    },
+    {
+      sport_id: baseball[0]._id,
+      item: "baseball chest protector",
+      price: 50
+    },
+    {
+      sport_id: lacrosse[0]._id,
+      item: "lacrosse shoulder pads",
+      price: 90
     }
 
 
