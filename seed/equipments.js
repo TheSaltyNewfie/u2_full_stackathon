@@ -45,6 +45,7 @@ const main = async () => {
       item: "CCM JetSpeed FT3 Pro Hockey Stick",
       price: 250,
       image: "https://www.sourceforsports.ca/cdn/shop/products/6e5daf91749987f5b5aa53629bb6a7db_21f4d3e2-58c1-4e03-bf42-22fd4677e981_500x500_crop_center.jpg?v=1627527516"
+      
     },
     {
       sport_id: hockey[0]._id,
