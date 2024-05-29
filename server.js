@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.get('/sports', sportController.getSportItems)
 app.get('/sports/:id', sportController.getSportItem)
+app.get('/sports/id/:name', sportController.getSportIdByName)
 app.get('/clothes', clothesController.getClothes)
 app.get('/clothes/:id', clothesController.getClothing)
 app.get('/equipment', equipmentController.getEquipments)
