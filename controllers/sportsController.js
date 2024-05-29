@@ -1,4 +1,4 @@
-const { Sport } = require('../models')
+const { Sport, Equipment, Clothing } = require('../models')
 
 const getSportItems = async (req, res) => {
     try {
@@ -22,7 +22,22 @@ const getSportItem = async (req, res) => {
     }
 }
 
+const getSportIdByName = async (req, res) => {
+    try {
+        const { name } = req.params
+        const item = await Sport.findOne({ name: name })
+        if (item) {
+            const items = await Equipment.find({ sport_id: item._id })
+            const clothes = await Clothing.find({ sport_id: item._id })
+            return res.status(200).json({ items, clothes })
+        }
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 module.exports = {
     getSportItems,
-    getSportItem
+    getSportItem,
+    getSportIdByName
 }
