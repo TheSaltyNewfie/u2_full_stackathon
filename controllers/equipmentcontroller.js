@@ -49,16 +49,7 @@ const updateEquipment = async(req, res) => {
     }
 }
 
-// const getEquipmentByEquipmentName = async(req, res) => {
-//     try {
-//         const { items } = req.params;
-//         const equipments = await Equipment.find({item: items });
-//         res.json(equipments);
-//     } catch (error) {
-//         return res.status(500).send(error.message);
-//     }
 
-// }
 
 const getEquipmentByEquipmentName = async (req, res) => {
     try {
@@ -66,7 +57,7 @@ const getEquipmentByEquipmentName = async (req, res) => {
         const equipments = await Equipment.find({ item: { $regex: searchTerm, $options: 'i' } })
         res.json(equipments)
     } catch (error) {
-        console.error("Error in getEquipmentBySearchTerm:", error)
+        console.error("Error in getEquipmentByEquipmentName:", error)
         return res.status(500).send(error.message);
     }
 }
@@ -79,5 +70,4 @@ module.exports = {
     addEquipment,
     getEquipmentByEquipmentName,
     updateEquipment
-
 }
