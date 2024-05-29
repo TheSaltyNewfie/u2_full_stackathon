@@ -49,10 +49,35 @@ const updateEquipment = async(req, res) => {
     }
 }
 
+// const getEquipmentByEquipmentName = async(req, res) => {
+//     try {
+//         const { items } = req.params;
+//         const equipments = await Equipment.find({item: items });
+//         res.json(equipments);
+//     } catch (error) {
+//         return res.status(500).send(error.message);
+//     }
+
+// }
+
+const getEquipmentByEquipmentName = async (req, res) => {
+    try {
+        const searchTerm = req.params.searchTerm
+        const equipments = await Equipment.find({ item: { $regex: searchTerm, $options: 'i' } })
+        res.json(equipments)
+    } catch (error) {
+        console.error("Error in getEquipmentBySearchTerm:", error)
+        return res.status(500).send(error.message);
+    }
+}
+
+
 module.exports = {
     getEquipments,
     getEquipment,
     getEquipmentBySportId,
     addEquipment,
+    getEquipmentByEquipmentName,
     updateEquipment
+
 }
