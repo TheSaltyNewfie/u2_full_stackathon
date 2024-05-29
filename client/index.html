@@ -11,15 +11,28 @@
 <body>
     <h1>Welcome to Not So Best Buy</h1>
     <div id="api-results"></div>
-    <form>
-        <input type="text"  value="" placeholder="Choose your goods!"  id="inputBar">
-        <input type="button"  value="Click here" id="searchButton">
-    </form>
-    <div id="board">
-        <h2 id="sportItem">Item</h2>
-        <img id="sportImage"/>   
-        <ul id="sportName"></ul> 
-        <div id="imageArray"></div>
-    </div>
+    <select id = "dropdown" onchange = "selectOption()">
+        <option>Baseball</option>
+        <option>Basketball</option>
+        <option>Football</option>
+        <option>Hockey</option>
+        <option>Lacrosse</option>
+        <option>Rugby</option>
+        <option>Soccer</option>
+        <option>Tennis</option>
+     </select>
+     <br><br>
+     <div id = "output">The selected value is ``.</div>
+     <script>
+        let output = document.getElementById('output');
+        function selectOption() {
+           let dropdown = document.getElementById('dropdown');
+           // get the index of the selected option
+           let selectedIndex = dropdown.selectedIndex;
+           // get a selected option and text value using the text property
+           let selectedValue = dropdown.options[selectedIndex].text;
+           output.innerHTML = "The selected value is " + selectedValue;
+        }
+     </script>
 </body>
 </html>
