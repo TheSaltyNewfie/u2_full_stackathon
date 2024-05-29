@@ -9,13 +9,13 @@ const equipmentController = require('./controllers/equipmentcontroller')
 
 const PORT = process.env.PORT || 3000
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(logger('dev'));
+const app = express()
+app.use(cors())
+app.use(bodyParser.json())
+app.use(logger('dev'))
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello World')
 })
 
 app.get('/sports', sportController.getSportItems)
@@ -27,7 +27,7 @@ app.get('/equipment/:id', equipmentController.getEquipment)
 app.post('/equipment', equipmentController.addEquipment)
 app.get('/equipment/sport/:sportId', equipmentController.getEquipmentBySportId)
 app.get('/equipment/items/:searchTerm', equipmentController.getEquipmentByEquipmentName)
->>>>>>>>> Temporary merge branch 2
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
