@@ -19,7 +19,18 @@ const getEquipment = async(req, res) => {
     }
 }
 
+const addEquipment = async(req, res) => {
+    try {
+        const equipment = await new Equipment(req.body)
+        await equipment.save()
+        res.json(equipment)
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 module.exports = {
     getEquipments,
-    getEquipment
+    getEquipment,
+    addEquipment
 }
