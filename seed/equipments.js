@@ -1,4 +1,4 @@
-// ball,BAT,gloves,headGear,padding
+// ,gloves,headGear,padding
 const db = require('../db')
 const { Sport, Equipment } = require('../models')
 
@@ -15,6 +15,7 @@ const main = async () => {
   const tennis = await Sport.find({ name: "Tennis"})
   
   const equipments = [
+    //bats
     {
         sport_id: hockey[0]._id,
         item: "CCM Ribcore 3 Hockey Stick",
@@ -134,7 +135,72 @@ const main = async () => {
         sport_id: lacrosse[0]._id,
         item: "Brine Clutch Elite Men's Lacrosse Stick",
         price: 250
+    },
+
+    //balls
+    {
+      sport_id: hockey[0]._id,
+      item: "puck",
+      price: 3
+    },
+    {
+      sport_id: baseball[0]._id,
+      item: "baseball",
+      price: 6
+    },
+    {
+      sport_id: tennis[0]._id,
+      item: "tennis ball x2",
+      price: 4
+    },
+    {
+      sport_id: basketball[0]._id,
+      item: "basketball",
+      price: 30
+    },
+    {
+      sport_id: football[0]._id,
+      item: "football",
+      price: 30
+    },
+    {
+      sport_id: soccer[0]._id,
+      item: "soccer ball",
+      price: 40
+    },
+    {
+      sport_id: rugby[0]._id,
+      item: "rugby ball",
+      price: 40
+    },
+
+    //gloves
+    {
+      sport_id: hockey[0]._id,
+      item: "hockey gloves",
+      price: 50
+    },
+    {
+      sport_id: baseball[0]._id,
+      item: "baseball gloves",
+      price: 60
+    },
+    {
+      sport_id: football[0]._id,
+      item: "football gloves",
+      price: 40
+    },
+    {
+      sport_id: golf[0]._id,
+      item: "golf gloves",
+      price: 15
+    },    
+    {
+      sport_id: lacrosse[0]._id,
+      item: "lacrosse gloves",
+      price: 80
     }
+
 
   
 
