@@ -77,5 +77,11 @@ module.exports = {
     getEquipment,
     getEquipmentBySportId,
     addEquipment,
+<<<<<<< HEAD
     getEquipmentByEquipmentName
+=======
+    getEquipmentByEquipmentName,
+    updateEquipment
+
+>>>>>>> 462bc3e89bc9aabfee8583e85d8c109fb2b68e6e
 }
