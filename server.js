@@ -24,8 +24,8 @@ app.get('/clothes', clothesController.getClothes)
 app.get('/clothes/:id', clothesController.getClothing)
 app.get('/equipment', equipmentController.getEquipments)
 app.get('/equipment/:id', equipmentController.getEquipment)
-
 app.post('/equipment', equipmentController.addEquipment)
+app.get('/equipment/sport/:sportId', equipmentController.getEquipmentBySportId)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
