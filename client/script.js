@@ -75,7 +75,26 @@ async function getEquipment(endpoint) {
 async function addToCart(item) {
     let cartSize = localStorage.length;
     localStorage.setItem(cartSize, JSON.stringify(item))
+
+    await updateCart()
 }
+
+async function updateCart() {
+    const cart = document.getElementById('sidebar')
+
+    for(let i = 0; i < localStorage.length; i++) {
+        cart.innerHTML += `
+            <div class="cart-item">
+                <img src="${JSON.parse(localStorage.getItem(i)).image}" alt="${JSON.parse(localStorage.getItem(i)).item}" width='100'>
+                <p>${JSON.parse(localStorage.getItem(i)).item}</p>
+                <p>$${JSON.parse(localStorage.getItem(i)).price}</p>
+            </div>
+        `
+    }
+
+}
+
+updateCart()
 
 dropdown.onchange = async (e) => {
     const selectedValue = dropdown.value;
