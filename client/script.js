@@ -1,4 +1,4 @@
-const sportsEndpoint = 'http://127.0.0.1:3000/sports'
+const sportsEndpoint = 'http://localhost:3000/sports'
 const clothesEndpoint = 'http://localhost:3000/clothes'
 const equipmentEndpoint = 'http://localhost:3000/equipment'
 
@@ -27,8 +27,8 @@ async function getItems(endpoint) {
             const itemHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
-                <p>$${item.price}</p>
                 <button onclick="addToCart(${JSON.stringify(cartDetails).replace(/"/g, "'")})">Add to Cart</button>
+                <p>$${item.price}</p>
             `;
             itemDiv.innerHTML = itemHTML;
             clothingDiv.appendChild(itemDiv);
