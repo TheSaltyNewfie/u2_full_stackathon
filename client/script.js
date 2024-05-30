@@ -27,8 +27,8 @@ async function getItems(endpoint) {
             const itemHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
-                <p>$${item.price}</p>
                 <button onclick="addToCart("${JSON.stringify(cartDetails)}")">Add to Cart</button>
+                <p>$${item.price}</p>
             `;
             itemDiv.innerHTML = itemHTML;
             clothingDiv.appendChild(itemDiv);
@@ -59,8 +59,8 @@ async function getEquipment(endpoint) {
             const equipHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
-                <p>$${item.price}</p>
                 <button onclick="addToCart(${JSON.stringify(cartDetails).replace(/"/g, "'")})">Add to Cart</button>
+                <p>$${item.price}</p>
             `;
             console.log(equipHTML)
             console.log(cartDetails)
