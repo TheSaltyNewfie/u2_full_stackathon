@@ -8,23 +8,17 @@ const equipmentDiv = document.getElementById('content2')
 const shoppingCart = document.getElementById('sidebar')
 
 async function getItems(endpoint) {
-    // remove items from the previous selection from the panel
     while(clothingDiv.firstChild) {
         clothingDiv.firstChild.remove()
     }
-
     try {
         const resp = await axios.get(`${endpoint}`)
         console.log(resp.data)
         resp.data.clothes.forEach(item => {
-        //     clothingDiv.innerHTML += `
-        //         <p>${item.name}</p>
-        //     `
-        // })
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('item');
         const itemHTML = `
-            <img src="${item.image}" alt="${item.item}" width='200'>
+            <img src="${item.image}" alt="${item.item}" width='100'>
             <p>${item.item}</p>
             <p>$${item.price}</p>
         `;
@@ -36,7 +30,33 @@ async function getItems(endpoint) {
     }
 }
 
+async function getEquipment(endpoint) {
+    while(equipmentDiv.firstChild) {
+        equipmentDiv.firstChild.remove()
+    }
+    try {
+        const resp = await axios.get(`${endpoint}`)
+        console.log(resp.data)
+
+        resp.data.items.forEach(item => {
+            const equipDiv = document.createElement('div');
+            equipmentDiv.classList.add('item');
+            const equipHTML = `
+                <img src="${item.image}" alt="${item.item}" width='100'>
+                <p>${item.item}</p>
+                <p>$${item.price}</p>
+            `;
+            equipDiv.innerHTML = equipHTML;
+            equipmentDiv.appendChild(equipDiv);
+        });
+    } catch(error) {
+        console.log(error)
+    }
+}
+
 dropdown.onchange = async (e) => {
     const selectedValue = dropdown.value;
-    await getItems(`${sportsEndpoint}/id/${selectedValue}`)
-}
+    const [equipmentResponse, itemsResponse] = await Promise.all([
+        getEquipment(`${sportsEndpoint}/id/${selectedValue}`),
+        getItems(`${sportsEndpoint}/id/${selectedValue}`)
+    ])}

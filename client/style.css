@@ -17,6 +17,7 @@ nav {
     background-image: url("/Main.png");
     background-repeat: no-repeat;
     background-size: contain;
+    url: "/main.png"
 }
 main {
     background-color: aquamarine;
