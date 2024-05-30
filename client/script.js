@@ -82,6 +82,9 @@ async function addToCart(item) {
 async function updateCart() {
     const cart = document.getElementById('sidebar')
 
+    cart.innerHTML = ' 🛒 Shopping Cart'
+
+
     for(let i = 0; i < localStorage.length; i++) {
         cart.innerHTML += `
             <div class="cart-item">
@@ -92,6 +95,16 @@ async function updateCart() {
         `
     }
 
+    if(localStorage.length > 0) {
+        cart.innerHTML += `
+            <button onclick="clearCart()">Clear Cart</button>
+        `
+    }
+}
+
+async function clearCart() {
+    localStorage.clear()
+    await updateCart()
 }
 
 updateCart()
