@@ -7,9 +7,6 @@ const clothingDiv = document.getElementById('content1')
 const equipmentDiv = document.getElementById('content2')
 const shoppingCart = document.getElementById('sidebar')
 
-// TESTING ONLY
-const TestButton = document.getElementById('TestButton')
-
 async function getItems(endpoint) {
     while(clothingDiv.firstChild) {
         clothingDiv.firstChild.remove()
@@ -18,23 +15,23 @@ async function getItems(endpoint) {
         const resp = await axios.get(`${endpoint}`)
         console.log(resp.data)
         resp.data.clothes.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('item');
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
 
-        const cartDetails = {
-            item: item.item,
-            price: item.price,
-            image: item.image
-        }
+            const cartDetails = {
+                item: item.item,
+                price: item.price,
+                image: item.image
+            }
 
-        const itemHTML = `
-            <img src="${item.image}" alt="${item.item}" width='100'>
-            <p>${item.item}</p>
-            <p>$${item.price}</p>
-            <button onclick="addToCart(${cartDetails})">Add to Cart</button>
-        `;
-        itemDiv.innerHTML = itemHTML;
-        clothingDiv.appendChild(itemDiv);
+            const itemHTML = `
+                <img src="${item.image}" alt="${item.item}" width='100'>
+                <p>${item.item}</p>
+                <p>$${item.price}</p>
+                <button onclick="addToCart("${JSON.stringify(cartDetails)}")">Add to Cart</button>
+            `;
+            itemDiv.innerHTML = itemHTML;
+            clothingDiv.appendChild(itemDiv);
     });
     } catch(error) {
         console.log(error)
@@ -52,12 +49,21 @@ async function getEquipment(endpoint) {
         resp.data.items.forEach(item => {
             const equipDiv = document.createElement('div');
             equipmentDiv.classList.add('item');
+
+            const cartDetails = {
+                item: item.item,
+                price: item.price,
+                image: item.image
+            }
+
             const equipHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
                 <p>$${item.price}</p>
-                <button>Add to Cart</button>
+                <button onclick="addToCart(${JSON.stringify(cartDetails).replace(/"/g, "'")})">Add to Cart</button>
             `;
+            console.log(equipHTML)
+            console.log(cartDetails)
             equipDiv.innerHTML = equipHTML;
             equipmentDiv.appendChild(equipDiv);
         });
@@ -68,12 +74,8 @@ async function getEquipment(endpoint) {
 
 async function addToCart(item) {
     let cartSize = localStorage.length;
-    localStorage.setItem(cartSize, item)
+    localStorage.setItem(cartSize, JSON.stringify(item))
 }
-
-TestButton.addEventListener('click', async () => {
-    addToCart('test')
-})
 
 dropdown.onchange = async (e) => {
     const selectedValue = dropdown.value;
