@@ -1,10 +1,4 @@
 # u2_full_stackathon
-Full stack hackathon
+## Willy & Wankers Sporting Goods
 
-sporting goods
-
-Controllers - Tobias?
-
-Collections 1 - soccer - Megan?
-
-Collections 2 - hockey - Gideon?
+![store homepage](./storeHomepage.png)
