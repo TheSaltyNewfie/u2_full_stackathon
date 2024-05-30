@@ -25,7 +25,7 @@ const getSportItem = async (req, res) => {
 const getSportIdByName = async (req, res) => {
     try {
         const { name } = req.params
-        const item = await Sport.findOne({ name: name })
+        const item = await Sport.findOne({ name:{$regex: name, $options: 'i'   } })
         if (item) {
             const items = await Equipment.find({ sport_id: item._id })
             const clothes = await Clothing.find({ sport_id: item._id })
