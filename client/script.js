@@ -27,7 +27,7 @@ async function getItems(endpoint) {
             const itemHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
-                <button onclick="addToCart("${JSON.stringify(cartDetails)}")">Add to Cart</button>
+                <button onclick="addToCarbetter t("${JSON.stringify(cartDetails)}")">Add to Cart</button>
                 <p>$${item.price}</p>
             `;
             itemDiv.innerHTML = itemHTML;
