@@ -1,0 +1,48 @@
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    grid-template-rows: 0.6fr 0.2fr 2fr 0.3fr;
+    grid-template-areas: 
+        "nav nav sidebar"
+        "main main sidebar"
+        "content1 content2 sidebar"
+        "footer footer footer";
+    grid-gap: 0.2rem;
+}
+nav {
+    background-color: aqua;
+    grid-area: nav;
+    text-align: center;
+    background-image: url("/Main.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+main {
+    background-color: aquamarine;
+    grid-area: main;
+    text-align: center;
+}
+#sidebar {
+    background-color: rgb(239, 246, 168);
+    grid-area: sidebar;
+    text-align: center;
+}
+#content1 {
+    background-color: darkorange;
+    grid-area: content1;
+    text-align: center;
+}
+#content2 {
+    background-color: deepskyblue;
+    grid-area: content2;
+    text-align: center;
+}
+footer {
+    background-color: blanchedalmond;
+    grid-area: footer;
+    text-align: center;
+}
+@media only screen and (max-width:550px){
+    
+}

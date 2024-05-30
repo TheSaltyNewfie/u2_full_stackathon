@@ -6,33 +6,42 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="script.js"></script>
-    <title>Not So Best Buy</title>
+    <title>Willy & Wankers</title>
 </head>
 <body>
-    <h1>Welcome to Not So Best Buy</h1>
-    <div id="api-results"></div>
-    <select id = "dropdown" onchange = "selectOption()">
-        <option>Baseball</option>
-        <option>Basketball</option>
-        <option>Football</option>
-        <option>Hockey</option>
-        <option>Lacrosse</option>
-        <option>Rugby</option>
-        <option>Soccer</option>
-        <option>Tennis</option>
-     </select>
-     <br><br>
-     <div id = "output">The selected value is ``.</div>
-     <script>
-        let output = document.getElementById('output');
-        function selectOption() {
-           let dropdown = document.getElementById('dropdown');
-           // get the index of the selected option
-           let selectedIndex = dropdown.selectedIndex;
-           // get a selected option and text value using the text property
-           let selectedValue = dropdown.options[selectedIndex].text;
-           output.innerHTML = "The selected value is " + selectedValue;
-        }
-     </script>
+    <div class="container">
+        <nav>
+             <h1>Willy & Wankers Sporting Goods</h1>
+             <div id="api-results"></div>
+        </nav>
+        <main>
+            <select id = "dropdown" onchange = "selectOption()">
+                <option>Baseball</option>
+                <option>Basketball</option>
+                <option>Football</option>
+                <option>Hockey</option>
+                <option>Lacrosse</option>
+                <option>Rugby</option>
+                <option>Soccer</option>
+                <option>Tennis</option>
+            </select>
+            <br><br>
+            <div id = "output">The selected value is Baseball.</div>
+            <script>
+                let output = document.getElementById('output');
+                function selectOption() {
+                let dropdown = document.getElementById('dropdown');
+                let selectedIndex = dropdown.selectedIndex;
+                let selectedValue = dropdown.options[selectedIndex].text;
+                output.innerHTML = "The selected value is " + selectedValue;
+                }
+            </script>
+        </main>
 </body>
 </html>
+    <div id="sidebar"> 🛒 Shopping Cart</div>
+    <div id="content1">Clothing</div>
+    <div id="content2">Equipment</div>
+    <footer>Created By: 
+        <img src="https://avatars.githubusercontent.com/u/46291294?v=4" width="80"> Tobias Dodge, <img src="https://avatars.githubusercontent.com/u/168038339?v=4" width="80"> Gideon Cove, & <img src="https://avatars.githubusercontent.com/u/167348894?v=4" width="80"> Megan Mashburn</footer>
+</div>
