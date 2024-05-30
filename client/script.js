@@ -15,15 +15,23 @@ async function getItems(endpoint) {
         const resp = await axios.get(`${endpoint}`)
         console.log(resp.data)
         resp.data.clothes.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('item');
-        const itemHTML = `
-            <img src="${item.image}" alt="${item.item}" width='100'>
-            <p>${item.item}</p>
-            <p>$${item.price}</p>
-        `;
-        itemDiv.innerHTML = itemHTML;
-        clothingDiv.appendChild(itemDiv);
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+
+            const cartDetails = {
+                item: item.item,
+                price: item.price,
+                image: item.image
+            }
+
+            const itemHTML = `
+                <img src="${item.image}" alt="${item.item}" width='100'>
+                <p>${item.item}</p>
+                <p>$${item.price}</p>
+                <button onclick="addToCart("${JSON.stringify(cartDetails)}")">Add to Cart</button>
+            `;
+            itemDiv.innerHTML = itemHTML;
+            clothingDiv.appendChild(itemDiv);
     });
     } catch(error) {
         console.log(error)
@@ -41,17 +49,32 @@ async function getEquipment(endpoint) {
         resp.data.items.forEach(item => {
             const equipDiv = document.createElement('div');
             equipmentDiv.classList.add('item');
+
+            const cartDetails = {
+                item: item.item,
+                price: item.price,
+                image: item.image
+            }
+
             const equipHTML = `
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
                 <p>$${item.price}</p>
+                <button onclick="addToCart(${JSON.stringify(cartDetails).replace(/"/g, "'")})">Add to Cart</button>
             `;
+            console.log(equipHTML)
+            console.log(cartDetails)
             equipDiv.innerHTML = equipHTML;
             equipmentDiv.appendChild(equipDiv);
         });
     } catch(error) {
         console.log(error)
     }
+}
+
+async function addToCart(item) {
+    let cartSize = localStorage.length;
+    localStorage.setItem(cartSize, JSON.stringify(item))
 }
 
 dropdown.onchange = async (e) => {
