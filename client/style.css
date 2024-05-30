@@ -22,6 +22,7 @@ h1 {
 h2 {
     color:darkcyan;
     font-size: 35px;
+    margin-bottom: 0px;
 }
 body {
     font-family: 'Permanent Marker', cursive;
