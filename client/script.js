@@ -28,7 +28,7 @@ async function getItems(endpoint) {
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
                 <p>$${item.price}</p>
-                <button onclick="addToCart("${JSON.stringify(cartDetails)}")">Add to Cart</button>
+                <button onclick="addToCart(${JSON.stringify(cartDetails).replace(/"/g, "'")})">Add to Cart</button>
             `;
             itemDiv.innerHTML = itemHTML;
             clothingDiv.appendChild(itemDiv);
