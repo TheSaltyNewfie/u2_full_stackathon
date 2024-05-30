@@ -12,7 +12,9 @@
     <div class="container">
         <nav>
              <h1>Willy & Wankers Sporting Goods</h1>
-             <div id="api-results"></div>
+             <div id="api-results">
+                <button id="TestButton">Add To Cart</button>
+             </div>
         </nav>
         <main>
             <select id = "dropdown" onchange ="selectOption()">
@@ -29,12 +31,6 @@
             <div id = "output">The selected value is Baseball.</div>
             <script>
                 let output = document.getElementById('output');
-                function selectOption() {
-                let dropdown = document.getElementById('dropdown');
-                let selectedIndex = dropdown.selectedIndex;
-                let selectedValue = dropdown.options[selectedIndex].text;
-                output.innerHTML = "The selected value is " + selectedValue;
-                }
             </script>
         </main>
 </body>

@@ -7,6 +7,9 @@ const clothingDiv = document.getElementById('content1')
 const equipmentDiv = document.getElementById('content2')
 const shoppingCart = document.getElementById('sidebar')
 
+// TESTING ONLY
+const TestButton = document.getElementById('TestButton')
+
 async function getItems(endpoint) {
     while(clothingDiv.firstChild) {
         clothingDiv.firstChild.remove()
@@ -17,10 +20,18 @@ async function getItems(endpoint) {
         resp.data.clothes.forEach(item => {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('item');
+
+        const cartDetails = {
+            item: item.item,
+            price: item.price,
+            image: item.image
+        }
+
         const itemHTML = `
             <img src="${item.image}" alt="${item.item}" width='100'>
             <p>${item.item}</p>
             <p>$${item.price}</p>
+            <button onclick="addToCart(${cartDetails})">Add to Cart</button>
         `;
         itemDiv.innerHTML = itemHTML;
         clothingDiv.appendChild(itemDiv);
@@ -45,6 +56,7 @@ async function getEquipment(endpoint) {
                 <img src="${item.image}" alt="${item.item}" width='100'>
                 <p>${item.item}</p>
                 <p>$${item.price}</p>
+                <button>Add to Cart</button>
             `;
             equipDiv.innerHTML = equipHTML;
             equipmentDiv.appendChild(equipDiv);
@@ -53,6 +65,15 @@ async function getEquipment(endpoint) {
         console.log(error)
     }
 }
+
+async function addToCart(item) {
+    let cartSize = localStorage.length;
+    localStorage.setItem(cartSize, item)
+}
+
+TestButton.addEventListener('click', async () => {
+    addToCart('test')
+})
 
 dropdown.onchange = async (e) => {
     const selectedValue = dropdown.value;
