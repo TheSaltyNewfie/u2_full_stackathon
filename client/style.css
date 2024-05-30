@@ -10,6 +10,9 @@
         "footer footer footer";
     grid-gap: 0.2rem;
 }
+body {
+    font-family: 'Permanent Marker', cursive;
+}
 nav {
     background-color: aqua;
     grid-area: nav;
